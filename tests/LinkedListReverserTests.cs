@@ -1,7 +1,8 @@
-[TestClass]
+using Xunit;
+
 public class LinkedListReverserTests
 {
-    [TestMethod]
+    [Fact]
     public void Reverse_ShouldReverseLinkedList()
     {
         // Arrange
@@ -19,14 +20,14 @@ public class LinkedListReverserTests
         var reversedHead = reverser.Reverse(node1);
 
         // Assert
-        Assert.AreEqual(4, reversedHead.Value);
-        Assert.AreEqual(3, reversedHead.Next.Value);
-        Assert.AreEqual(2, reversedHead.Next.Next.Value);
-        Assert.AreEqual(1, reversedHead.Next.Next.Next.Value);
-        Assert.IsNull(reversedHead.Next.Next.Next.Next);
+        Assert.Equal(4, reversedHead.Value);
+        Assert.Equal(3, reversedHead.Next.Value);
+        Assert.Equal(2, reversedHead.Next.Next.Value);
+        Assert.Equal(1, reversedHead.Next.Next.Next.Value);
+        Assert.Null(reversedHead.Next.Next.Next.Next);
     }
 
-    [TestMethod]
+    [Fact]
     public void Reverse_ShouldHandleEmptyList()
     {
         // Arrange
@@ -36,10 +37,10 @@ public class LinkedListReverserTests
         var reversedHead = reverser.Reverse<int>(null);
 
         // Assert
-        Assert.IsNull(reversedHead);
+        Assert.Null(reversedHead);
     }
 
-    [TestMethod]
+    [Fact]
     public void Reverse_ShouldHandleSingleElementList()
     {
         // Arrange
@@ -50,7 +51,7 @@ public class LinkedListReverserTests
         var reversedHead = reverser.Reverse(node1);
 
         // Assert
-        Assert.AreEqual(1, reversedHead.Value);
-        Assert.IsNull(reversedHead.Next);
+        Assert.Equal(1, reversedHead.Value);
+        Assert.Null(reversedHead.Next);
     }
 }
