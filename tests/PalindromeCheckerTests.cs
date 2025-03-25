@@ -1,25 +1,26 @@
-[TestClass]
+using Xunit;
+
 public class PalindromeCheckerTests
 {
-    [TestMethod]
+    [Fact]
     public void IsPalindrome_ShouldReturnTrueForPalindromeNumber()
     {
         // Arrange
         var checker = new PalindromeChecker();
 
         // Act & Assert
-        Assert.IsTrue(checker.IsPalindrome(121));
-        Assert.IsTrue(checker.IsPalindrome(12321));
+        Assert.True(checker.IsPalindrome(121));
+        Assert.True(checker.IsPalindrome(12321));
     }
 
-    [TestMethod]
+    [Fact]
     public void IsPalindrome_ShouldReturnFalseForNonPalindromeNumber()
     {
         // Arrange
         var checker = new PalindromeChecker();
 
         // Act & Assert
-        Assert.IsFalse(checker.IsPalindrome(123));
-        Assert.IsFalse(checker.IsPalindrome(123456));
+        Assert.False(checker.IsPalindrome(123));
+        Assert.False(checker.IsPalindrome(123456));
     }
 }
