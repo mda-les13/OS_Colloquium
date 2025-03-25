@@ -1,10 +1,6 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
-[TestClass]
 public class FibonacciCalculatorTests
 {
-    [TestMethod]
+    [Fact]
     public void GetFibonacciNumbers_ShouldReturnCorrectSequenceForN5()
     {
         // Arrange
@@ -15,28 +11,26 @@ public class FibonacciCalculatorTests
         var result = calculator.GetFibonacciNumbers(5);
 
         // Assert
-        CollectionAssert.AreEqual(expected, result);
+        Assert.Equal(expected, result);
     }
 
-    [TestMethod]
-    [ExpectedException(typeof(ArgumentException))]
+    [Fact]
     public void GetFibonacciNumbers_ShouldThrowArgumentExceptionForNegativeInput()
     {
         // Arrange
         var calculator = new FibonacciCalculator();
 
         // Act & Assert
-        calculator.GetFibonacciNumbers(-1);
+        Assert.Throws<ArgumentException>(() => calculator.GetFibonacciNumbers(-1));
     }
 
-    [TestMethod]
-    [ExpectedException(typeof(ArgumentException))]
+    [Fact]
     public void GetFibonacciNumbers_ShouldThrowArgumentExceptionForZeroInput()
     {
         // Arrange
         var calculator = new FibonacciCalculator();
 
         // Act & Assert
-        calculator.GetFibonacciNumbers(0);
+        Assert.Throws<ArgumentException>(() => calculator.GetFibonacciNumbers(0));
     }
 }
